@@ -22,6 +22,9 @@ Available variables are:
 |S3_REGION|If using S3 remote storage with v4 authentication set the region|No|
 |LOG_LEVEL|Sets the Apache error log level|No|
 |LOG_FORMAT|Sets a custom Apache log format|No|
+|REMIX_HOST|Sets the remix API host|No|
+|REMIX_PORT|Sets the remix API port|No|
+|CATCHUP_PATH|Sets the path to be used for remix content|No|
 
 
 Example

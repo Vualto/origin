@@ -1,0 +1,2 @@
+ProxyPass {{CATCHUP_PATH}} http://{{REMIX_HOST}}:{{REMIX_PORT}}/
+ProxyPassReverse {{CATCHUP_PATH}} http://{{REMIX_HOST}}:{{REMIX_PORT}}/

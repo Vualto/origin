@@ -51,6 +51,12 @@ if [ $TRANSCODE_PATH ] && [ $TRANSCODE_URL ]
   /bin/sed "s@{{TRANSCODE_PATH}}@${TRANSCODE_PATH}@g; s@{{TRANSCODE_URL}}@${TRANSCODE_URL}@g; s@{{REMOTE_STORAGE_URL}}@${REMOTE_STORAGE_URL}@g" /etc/apache2/conf.d/transcode.conf.in > /etc/apache2/conf.d/transcode.conf
 fi
 
+# remix catchup
+if [ $REMIX_HOST ] && [ $REMIX_PORT ] && [ $CATCHUP_PATH ]
+  then
+  /bin/sed "s@{{REMIX_HOST}}@${REMIX_HOST}@g; s@{{REMIX_PORT}}@${REMIX_PORT}@g; s@{{CATCHUP_PATH}}@${CATCHUP_PATH}@g" /etc/apache2/conf.d/remix.conf.in > /etc/apache2/conf.d/remix.conf
+fi
+
 
 # USP license
 echo $USP_LICENSE_KEY > /etc/usp-license.key
