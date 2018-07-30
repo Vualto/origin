@@ -1,10 +1,4 @@
-![logo](https://raw.githubusercontent.com/unifiedstreaming/origin/master/unifiedstreaming-logo-black.png)
-
-What is Unified Origin?
------------------------
-Unified Origin offers one solution for just-in-time packaging to MPEG-DASH, Apple (HLS), Adobe (HDS) and Microsoft (MSS). Our added features include content protection, restart TV, time-shift, catchup-TV, subtitles, and multiple language and audio tracks.
-
-Further documentation is available at: <http://docs.unified-streaming.com>
+Forked from https://github.com/unifiedstreaming/origin, adds proxy pass to (vuarchiver) Remix API for vod catchup.
 
 Usage
 -----
@@ -37,6 +31,7 @@ docker run \
   -e REMOTE_STORAGE_URL=http://usp-s3-storage.s3.eu-central-1.amazonaws.com/ \
   -e LOG_LEVEL=debug \
   -p 1080:80 \
+  -v /remix/content/path:/var/www/unified-streaming/remix \
   unifiedstreaming/origin:1.8.5
 ```
 
