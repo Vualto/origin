@@ -1,6 +1,9 @@
 #!/bin/sh
 set -e
 
+# fix loading libxml2
+/bin/sed "s@LoadFile /usr/lib/libxml2.so@LoadFile libxml2.so.2.8.0@g;" /etc/apache2/conf.d/proxy-html.conf > /etc/apache2/conf.d/proxy-html.conf
+
 # set env vars to defaults if not already set
 if [ -z "$LOG_LEVEL" ]
   then
@@ -40,10 +43,8 @@ if [ $S3_ACCESS_KEY ] && [ $S3_SECRET_KEY ] && [ $S3_REGION ]
   S3_REGION="S3Region ${S3_REGION}"
   /bin/sed "s@{{REMOTE_PATH}}@${REMOTE_PATH}@g; s@{{S3_ACCESS_KEY}}@${S3_ACCESS_KEY}@g; s@{{S3_SECRET_KEY}}@${S3_SECRET_KEY}@g; s@{{S3_REGION}}@${S3_REGION}@g" /etc/apache2/conf.d/s3_auth.conf.in > /etc/apache2/conf.d/s3_auth.conf
 fi
-if [ $S3_ACCESS_KEY ] && [ $S3_SECRET_KEY ] && [ -z $S3_REGION ]
-  then
-  /bin/sed "s@{{REMOTE_PATH}}@${REMOTE_PATH}@g; s@{{S3_ACCESS_KEY}}@${S3_ACCESS_KEY}@g; s@{{S3_SECRET_KEY}}@${S3_SECRET_KEY}@g; s@{{S3_REGION}}@@g" /etc/apache2/conf.d/s3_auth.conf.in > /etc/apache2/conf.d/s3_auth.conf
-fi
+
+cat /etc/apache2/conf.d/s3_auth.conf
 
 # transcode
 if [ $TRANSCODE_PATH ] && [ $TRANSCODE_URL ]
