@@ -44,8 +44,6 @@ if [ $S3_ACCESS_KEY ] && [ $S3_SECRET_KEY ] && [ $S3_REGION ]
   /bin/sed "s@{{REMOTE_PATH}}@${REMOTE_PATH}@g; s@{{S3_ACCESS_KEY}}@${S3_ACCESS_KEY}@g; s@{{S3_SECRET_KEY}}@${S3_SECRET_KEY}@g; s@{{S3_REGION}}@${S3_REGION}@g" /etc/apache2/conf.d/s3_auth.conf.in > /etc/apache2/conf.d/s3_auth.conf
 fi
 
-cat /etc/apache2/conf.d/s3_auth.conf
-
 # transcode
 if [ $TRANSCODE_PATH ] && [ $TRANSCODE_URL ]
   then
