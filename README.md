@@ -31,12 +31,7 @@ docker run \
   -e REMOTE_STORAGE_URL=http://usp-s3-storage.s3.eu-central-1.amazonaws.com/ \
   -e LOG_LEVEL=debug \
   -p 1080:80 \
-<<<<<<< HEAD
-  -v /remix/content/path:/var/www/unified-streaming/remix \
-  unifiedstreaming/origin:1.8.5
-=======
   unifiedstreaming/origin:1.10.12
->>>>>>> upstream/master
 ```
 
 Tutorial
